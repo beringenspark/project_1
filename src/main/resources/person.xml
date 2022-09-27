@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+    <!-- This file defines person beans and depends upon address beans ands phone beans. -->
+
+    <import resource="address.xml"/>
+    <import resource="phone.xml"/>
+
+    <bean name="John_Doe_Person" id="J_Doe" class="Person">
+        <constructor-arg index="0" value="0"/>
+        <constructor-arg index="1" type="java.lang.String" value="John Doe" />
+        <constructor-arg index="2" type="Address" ref="John_Doe_address-1"/>
+        <constructor-arg index="3">
+            <list>
+                <ref bean="cell-1"/>
+                <ref bean="home-1"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

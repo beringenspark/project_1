@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+<!-- This file defines address beans -->
+    <bean name="John_Doe_Address_Home" id="John_Doe_address-1" class="Address">
+        <property name="city" value="Metropolis"/>
+        <property name="country" value="USA"/>
+        <property name="zipcode" value="77777"/>
+        <property name="state" value="New York"/>
+    </bean>
+
+    <bean name="John_Doe_Address_Work" id="John_Doe_address-2" class="Address">
+        <property name="city" value="Gotham"/>
+        <property name="country" value="USA"/>
+        <property name="zipcode" value="55555"/>
+        <property name="state" value="Arkham"/>
+    </bean>
+
+
+</beans>
