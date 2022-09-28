@@ -6,14 +6,14 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 <!-- This file defines address beans -->
-    <bean name="John_Doe_Address_Home" id="John_Doe_address-1" class="Address">
+    <bean name="John_Doe_Address_Home" id="John_Doe_address-1" class="XmlBeans.Address" init-method="initMethod" destroy-method="destroyMethod" scope="singleton">
         <property name="city" value="Metropolis"/>
         <property name="country" value="USA"/>
         <property name="zipcode" value="77777"/>
         <property name="state" value="New York"/>
     </bean>
 
-    <bean name="John_Doe_Address_Work" id="John_Doe_address-2" class="Address">
+    <bean name="John_Doe_Address_Work" id="John_Doe_address-2" class="XmlBeans.Address" init-method="initMethod" destroy-method="destroyMethod" scope="singleton">
         <property name="city" value="Gotham"/>
         <property name="country" value="USA"/>
         <property name="zipcode" value="55555"/>

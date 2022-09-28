@@ -1,3 +1,9 @@
+package XmlBeans;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 public class Person
@@ -9,7 +15,7 @@ public class Person
     private Address add;
 
     public Person(){}
-    public Person(int id, String name, Address add,List<Phone> phone){
+    public Person(int id, String name, Address add, List<Phone> phone){
         this.id = id;
         this.name = name;
         this.add = add;
@@ -23,4 +29,5 @@ public class Person
     public String getName() {return name;}
     public List<Phone> getPhones(){return this.ph;}
     public Address getAdd(){return this.add;}
+
 }

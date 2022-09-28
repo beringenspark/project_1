@@ -1,3 +1,5 @@
+package XmlBeans;
+
 public class Address
 {
     private String city;
@@ -6,6 +8,15 @@ public class Address
     private String zipcode;
 
     public Address(){}
+
+    public void  initMethod()
+    {
+        System.out.println("Calling init method for XmlBeans.ScannedAddress bean!");
+    }
+
+    public void destroyMethod(){
+        System.out.println("Calling destroy method..");
+    }
     public Address(String city, String state, String country, String zip)
     {
         this.city = city;

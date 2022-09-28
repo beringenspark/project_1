@@ -1,6 +1,15 @@
+import XmlBeans.Person;
+import XmlBeans.Phone;
+import componentscan.ScannedPerson;
+import javaconfig.JConfigConfigurations;
+import javaconfig.JConfigPerson;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+@ComponentScan(basePackages = {"componentscan"})
+@Configuration
 public class Application {
 
     public static void printPersonFromContext(Person p)
@@ -19,12 +28,14 @@ public class Application {
     public static void main(String [] args)
     {
         ClassPathXmlApplicationContext classpathContext = new ClassPathXmlApplicationContext("beans.xml");
-        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(BeansConfiguration.class);
+        ClassPathXmlApplicationContext classPathXmlApplicationContextComponentScan = new ClassPathXmlApplicationContext("scannedFile.xml");
+        AnnotationConfigApplicationContext javaconfigContext = new AnnotationConfigApplicationContext(JConfigConfigurations.class);
+
+        JConfigPerson person2 = javaconfigContext.getBean(JConfigPerson.class);
         Person classPathPerson = classpathContext.getBean(Person.class);
-        Person appContextPerson = annotationConfigApplicationContext.getBean(Person.class);
+        ScannedPerson person  = classPathXmlApplicationContextComponentScan.getBean(ScannedPerson.class);
         printPersonFromContext(classPathPerson);
-        printPersonFromContext(appContextPerson);
+        System.out.println("Closing context...");
+        classpathContext.close();
     }
-
-
 }
