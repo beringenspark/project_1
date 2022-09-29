@@ -1,9 +1,5 @@
-package XmlBeans;
+package org.practice.XmlBeans;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 public class Person
@@ -35,6 +31,8 @@ public class Person
      * Used to trigger aspect weaving
      * @param arg the arg to console log from the aspect
      */
-    public void aopTrigger(String arg){}
+    public void crossCutConcernOne(String arg){System.out.println("Inside user supplied definition of method crossCutConcernOne");}
+    public void crossCutConcernTwo(String arg){System.out.println("Inside user supplied definition of method def of crossCutConcernTwo");}
+
 
 }

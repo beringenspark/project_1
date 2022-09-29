@@ -7,10 +7,10 @@
         http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     <!-- This file defines phone beans. -->
 
-    <bean name="John_Doe_Cell_Phone" id="cell-1" class="XmlBeans.Phone">
+    <bean name="John_Doe_Cell_Phone" id="cell-1" class="org.practice.XmlBeans.Phone">
         <constructor-arg index="0" value="4441234567"/>
     </bean>
-    <bean name="John_Doe_Home_Phone" id="home-1" class="XmlBeans.Phone">
+    <bean name="John_Doe_Home_Phone" id="home-1" class="org.practice.XmlBeans.Phone">
         <constructor-arg index="0" value="123456789"/>
     </bean>
 

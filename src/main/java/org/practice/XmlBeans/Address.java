@@ -1,6 +1,4 @@
-package XmlBeans;
-
-import org.springframework.stereotype.Component;
+package org.practice.XmlBeans;
 
 public class Address
 {
@@ -13,7 +11,7 @@ public class Address
 
     public void  initMethod()
     {
-        System.out.println("Calling init method for XmlBeans.ScannedAddress bean!");
+        System.out.println("Calling init method for org.practice.XmlBeans.ScannedAddress bean!");
     }
 
     public void destroyMethod(){

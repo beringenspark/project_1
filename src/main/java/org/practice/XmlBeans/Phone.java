@@ -1,4 +1,4 @@
-package XmlBeans;
+package org.practice.XmlBeans;
 
 public class Phone
 {

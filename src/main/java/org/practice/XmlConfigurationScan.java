@@ -1,10 +1,11 @@
-package jconfig;
+package org.practice;
 
-import XmlBeans.Address;
-import XmlBeans.Person;
-import XmlBeans.Phone;
+import org.practice.XmlBeans.Address;
+import org.practice.XmlBeans.Person;
+import org.practice.XmlBeans.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
@@ -14,11 +15,12 @@ import javax.annotation.PreDestroy;
 import java.util.List;
 
 /**
- * For use in xmlScannedContext.
+ * For use in JavaConfig where no XML configuration is required.
  */
 @Configuration
-@EnableAspectJAutoProxy //enable aop for this context config
-public class JConfigConfigurationScan {
+@ComponentScan(basePackages = {"org.practice.aop"})
+@EnableAspectJAutoProxy //enable org.practice.aop for this context config
+public class XmlConfigurationScan {
 
     @PostConstruct()
     public void init(){System.out.println("custom init method called");}
@@ -27,20 +29,20 @@ public class JConfigConfigurationScan {
 
     @Bean()
     public Address getAddress(){
-        return new Address("JConfigScan","Java","USA","44444");
+        return new Address("XmlConfigScan","Xml","USA","12344");
     }
 
     @Bean("homePh")
     @Order(1)
-    public Phone getHomePhone(){ return new Phone("9999999");}
+    public Phone getHomePhone(){ return new Phone("0000000");}
 
     @Bean("businessPh")
     @Order(0)
-    public Phone getBusiness(){return new Phone("7777777");}
+    public Phone getBusiness(){return new Phone("111111");}
 
     @Bean()
     @Autowired
     public Person getPerson(List<Phone> phoneList, Address address){
-        return new Person(11,"Java Doe",address,phoneList);
+        return new Person(11,"John Doe",address,phoneList);
     }
 }

@@ -7,7 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="scanmepackage"/>
-    <context:component-scan base-package="aop"/>
+    <context:component-scan base-package="org.practice"/>
     <context:annotation-config/>
 </beans>
