@@ -1,4 +1,4 @@
-package scanmepackage;
+package jconfig;
 
 import XmlBeans.Address;
 import XmlBeans.Person;
@@ -6,6 +6,7 @@ import XmlBeans.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,7 @@ import java.util.List;
  * For use in xmlScannedContext.
  */
 @Configuration
+@EnableAspectJAutoProxy //enable aop for this context config
 public class JConfigConfigurationScan {
 
     @PostConstruct()

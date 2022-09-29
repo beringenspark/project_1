@@ -2,9 +2,11 @@ import XmlBeans.Person;
 import XmlBeans.Phone;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import scanmepackage.JConfigConfigurationScan;
+import jconfig.JConfigConfigurationScan;
 
+@EnableAspectJAutoProxy
 public class Application {
 
     public static void printPersonFromContext(Person p)
@@ -14,6 +16,7 @@ public class Application {
             System.out.println(" ------- Printing person -------");
             System.out.println(p.getName());
             System.out.println(p.getAdd().toString());
+            p.aopTrigger("Trigger");
             for(Phone doePhone: p.getPhones())
                 System.out.println(doePhone.getMob());
         }

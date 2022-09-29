@@ -6,6 +6,7 @@ import XmlBeans.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,7 @@ import java.util.List;
  * For use in JavaConfig where no XML configuration is required.
  */
 @Configuration
+@EnableAspectJAutoProxy //enable aop for this config
 public class XmlConfigurationScan {
 
     @PostConstruct()

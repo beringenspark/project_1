@@ -26,8 +26,15 @@ public class Person
     public void setAddress(Address address){this.add = address;}
     public void setPhoneList(List<Phone> phoneList) {this.ph = phoneList;}
 
+
     public String getName() {return name;}
     public List<Phone> getPhones(){return this.ph;}
     public Address getAdd(){return this.add;}
+
+    /**
+     * Used to trigger aspect weaving
+     * @param arg the arg to console log from the aspect
+     */
+    public void aopTrigger(String arg){}
 
 }
