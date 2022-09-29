@@ -1,16 +1,10 @@
 import XmlBeans.Person;
 import XmlBeans.Phone;
-import componentscan.ScannedPerson;
-import javaconfig.JConfigConfigurations;
-import javaconfig.JConfigPerson;
-import javaconfig.JConfigPhone;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@ComponentScan(basePackages = {"componentscan"})
-@Configuration
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import scanmepackage.JConfigConfigurationScan;
+
 public class Application {
 
     public static void printPersonFromContext(Person p)
@@ -30,18 +24,15 @@ public class Application {
     {
         ClassPathXmlApplicationContext classpathContext = new ClassPathXmlApplicationContext("beans.xml");
         ClassPathXmlApplicationContext classPathXmlApplicationContextComponentScan = new ClassPathXmlApplicationContext("scannedFile.xml");
-        AnnotationConfigApplicationContext javaconfigContext = new AnnotationConfigApplicationContext(JConfigConfigurations.class);
+        AnnotationConfigApplicationContext javaconfigContext = new AnnotationConfigApplicationContext(JConfigConfigurationScan.class);
 
-        JConfigPerson person2 = javaconfigContext.getBean(JConfigPerson.class);
         Person classPathPerson = classpathContext.getBean(Person.class);
-        ScannedPerson person  = classPathXmlApplicationContextComponentScan.getBean(ScannedPerson.class);
-        printPersonFromContext(classPathPerson);
-        System.out.println("Closing context...");
-        classpathContext.close();
+        Person xmlScannedPerson  = classPathXmlApplicationContextComponentScan.getBean(Person.class);
+        Person jconfigScannedPerson = javaconfigContext.getBean(Person.class);
 
-        for(JConfigPhone personIter:person2.getPhones()){
-            System.out.println("*****");
-            System.out.println(personIter.getMob());
-        }
+        printPersonFromContext(classPathPerson);
+        printPersonFromContext(xmlScannedPerson);
+        printPersonFromContext(jconfigScannedPerson);
+
     }
 }

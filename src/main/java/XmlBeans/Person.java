@@ -9,10 +9,10 @@ import java.util.List;
 public class Person
 {
 
-    private int id;
-    private String name;
-    private List<Phone> ph;
-    private Address add;
+    protected int id;
+    protected String name;
+    protected List<Phone> ph;
+    protected Address add;
 
     public Person(){}
     public Person(int id, String name, Address add, List<Phone> phone){

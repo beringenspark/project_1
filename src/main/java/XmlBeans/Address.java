@@ -1,11 +1,13 @@
 package XmlBeans;
 
+import org.springframework.stereotype.Component;
+
 public class Address
 {
-    private String city;
-    private String state;
-    private String country;
-    private String zipcode;
+    protected String city;
+    protected String state;
+    protected String country;
+    protected String zipcode;
 
     public Address(){}
 

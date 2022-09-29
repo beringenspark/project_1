@@ -2,7 +2,7 @@ package XmlBeans;
 
 public class Phone
 {
-    private String mob;
+    protected String mob;
 
     public Phone(){}
 
