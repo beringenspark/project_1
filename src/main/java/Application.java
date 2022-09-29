@@ -3,6 +3,7 @@ import XmlBeans.Phone;
 import componentscan.ScannedPerson;
 import javaconfig.JConfigConfigurations;
 import javaconfig.JConfigPerson;
+import javaconfig.JConfigPhone;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -37,5 +38,10 @@ public class Application {
         printPersonFromContext(classPathPerson);
         System.out.println("Closing context...");
         classpathContext.close();
+
+        for(JConfigPhone personIter:person2.getPhones()){
+            System.out.println("*****");
+            System.out.println(personIter.getMob());
+        }
     }
 }

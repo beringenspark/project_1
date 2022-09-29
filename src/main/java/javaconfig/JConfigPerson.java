@@ -11,13 +11,12 @@ public class JConfigPerson
 
     private int id;
     private String name;
-    @Autowired
     private List<JConfigPhone> ph;
     @Autowired
     private JConfigAddress add;
 
-    public JConfigPerson(){}
-    public JConfigPerson(int id, String name, JConfigAddress add, List<JConfigPhone> phone){
+    public JConfigPerson(int id, String name, JConfigAddress add, List<JConfigPhone> phone)
+    {
         this.id = id;
         this.name = name;
         this.add = add;
