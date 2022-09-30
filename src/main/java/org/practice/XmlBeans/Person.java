@@ -1,11 +1,14 @@
 package org.practice.XmlBeans;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 public class Person
 {
 
     protected int id;
+    @Value("#{'John Doe from SpEL'}")
     protected String name;
     protected List<Phone> ph;
     protected Address add;
@@ -13,7 +16,6 @@ public class Person
     public Person(){}
     public Person(int id, String name, Address add, List<Phone> phone){
         this.id = id;
-        this.name = name;
         this.add = add;
         this.ph = phone;
     }
@@ -33,6 +35,4 @@ public class Person
      */
     public void crossCutConcernOne(String arg){System.out.println("Inside user supplied definition of method crossCutConcernOne");}
     public void crossCutConcernTwo(String arg){System.out.println("Inside user supplied definition of method def of crossCutConcernTwo");}
-
-
 }

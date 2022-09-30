@@ -20,8 +20,14 @@ public class Application {
             p.crossCutConcernOne("Trigger");
             p.crossCutConcernTwo("Trigger");
 
+            System.out.println("Printing users phones:");
             for(Phone doePhone: p.getPhones())
+            {
                 System.out.println(doePhone.getMob());
+            }
+            System.out.println(" ------- End Printing person --------- ");
+            System.out.println("");
+
         }
         else
             System.out.println("The person bean is null or is misconfigured. Cannot print");
